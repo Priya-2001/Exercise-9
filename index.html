@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Payroll management system</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body class="bg-success">
+        <div class="container">
+            <h1><center>PAYROLL MANAGEMENT SYSTEM</center></h1>
+            <form>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id">Employee id:</label>
+                            <input type="text" class="form-control" id="id" placeholder="Enter your id" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label for="emp">Employee Name:</label>
+                            <input type="text" class="form-control" id="emp" placeholder="Enter your name" name="emp">
+                        </div>
+                        <div class="form-group">
+                            <label for="sal">Basic Pay:</label>
+                            <input type="text" class="form-control" id="sal" placeholder="Enter your basic pay" name="sal">
+                        </div>
+                        <div class="form-group">
+                            <label for="da">DA:</label>
+                            <input type="text" class="form-control" id="da" placeholder="Enter DA" name="da">
+                        </div>
+                        <div class="form-group">
+                            <label for="hra">HRA:</label>
+                            <input type="text" class="form-control" id="hra" placeholder="Enter HRA" name="hra">
+                        </div>
+                        <div class="form-group">
+                            <label for="oe">Other Expenses:</label>
+                            <input type="text" class="form-control" id="oe" placeholder="Enter other expenses amount" name="oe">
+                        </div>
+                        <div class="form-group">
+                            <label for="ded">Deduction:</label>
+                            <input type="text" class="form-control" id="ded" placeholder="Enter deduction amount" name="ded">
+                        </div>
+                        <button type="submit" class="btn btn-primary" onclick="getres();return false;">Submit</button>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script type="text/javascript">  
+            function getres(){  
+                var id = document.getElementById("id").value;
+                var name = document.getElementById("emp").value;
+                var bp = document.getElementById("sal").value;
+                var da =  document.getElementById("da").value;
+                var hra = document.getElementById("hra").value;
+                var oex = document.getElementById("oe").value;
+                var ded = document.getElementById("ded").value;
+                da = (da/100)*bp;
+                var res = parseInt(da)+parseInt(hra)+parseInt(oex)+parseInt(bp)-parseInt(ded); 
+                
+                document.getElementById("result1").innerHTML="Employee id:"+id;
+                result2.innerHTML="Employee name:"+name;
+                result3.innerHTML="Basic salary:"+bp;
+                result4.innerHTML="Net salary:"+res;
+            }  
+        </script>
+        <center>
+            <h4 id = "result1"></h4>
+            <h4 id = "result2"></h4>
+            <h4 id = "result3"></h4>
+            <h4 id = "result4"></h4>
+        </center>
+    </body>
+</html>
